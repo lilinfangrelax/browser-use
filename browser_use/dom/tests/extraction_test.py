@@ -6,6 +6,10 @@ from browser_use.browser.context import BrowserContext, BrowserContextConfig
 from browser_use.dom.service import DomService
 from browser_use.utils import time_execution_sync
 
+"""
+这一个是用来测试网页的html文件，用来测试网页的元素数量
+"""
+
 
 async def test_process_html_file():
 	config = BrowserContextConfig(
@@ -22,10 +26,7 @@ async def test_process_html_file():
 	context = BrowserContext(browser=browser, config=config)  # noqa: F821
 
 	websites = [
-		'https://kayak.com/flights',
-		'https://immobilienscout24.de',
-		'https://google.com',
-		'https://amazon.com',
+
 		'https://github.com',
 	]
 
@@ -94,16 +95,6 @@ async def test_focus_vs_all_elements():
 	context = BrowserContext(browser=browser, config=config)  # noqa: F821
 
 	websites = [
-		'https://immobilienscout24.de',
-		'https://www.zeiss.com/career/en/job-search.html?page=1',
-		'https://www.mlb.com/yankees/stats/',
-		'https://www.amazon.com/s?k=laptop&s=review-rank&crid=1RZCEJ289EUSI&qid=1740202453&sprefix=laptop%2Caps%2C166&ref=sr_st_review-rank&ds=v1%3A4EnYKXVQA7DIE41qCvRZoNB4qN92Jlztd3BPsTFXmxU',
-		'https://codepen.io/geheimschriftstift/pen/mPLvQz',
-		'https://reddit.com',
-		'https://www.google.com/search?q=google+hi&oq=google+hi&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQRRhA0gEIMjI2NmowajSoAgCwAgE&sourceid=chrome&ie=UTF-8',
-		'https://kayak.com/flights',
-		'https://google.com',
-		'https://amazon.com',
 		'https://github.com',
 	]
 

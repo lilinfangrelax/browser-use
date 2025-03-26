@@ -10,6 +10,7 @@ from langchain_openai import ChatOpenAI
 
 from browser_use import Agent
 
+"""
 load_dotenv()
 
 # Initialize the model
@@ -28,3 +29,21 @@ async def main():
 
 if __name__ == '__main__':
 	asyncio.run(main())
+"""
+
+api_key = os.getenv('Silicon_Cloud_API_KEY')
+base_url = os.getenv('Base_URL')
+model = os.getenv('Model')
+
+llm = ChatOpenAI(model=model, api_key=api_key, base_url=base_url)
+
+async def main():
+    agent = Agent(
+        task="获取区块链CFX的价格",
+        llm=llm,
+        use_vision=False,
+    )
+    result = await agent.run()
+    print(result)
+
+asyncio.run(main())

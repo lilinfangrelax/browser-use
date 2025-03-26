@@ -1,5 +1,9 @@
 """
 Playwright browser on steroids.
+
+
+
+这个类的作用清楚了，主要是用于生成playwight实例和浏览器的，并不涉及浏览器的操作
 """
 
 import asyncio

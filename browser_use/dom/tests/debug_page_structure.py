@@ -2,6 +2,10 @@ import asyncio
 import os
 import sys
 
+"""
+这一个类是用来分析网页结构的，
+"""
+
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from browser_use.browser.browser import Browser, BrowserConfig
@@ -22,8 +26,9 @@ async def analyze_page_structure(url: str):
 		async with context as ctx:
 			# Navigate to the URL
 			page = await ctx.get_current_page()
+			page.set_default_timeout(1000000)
 			await page.goto(url)
-			await page.wait_for_load_state('networkidle')
+			# await page.wait_for_load_state('networkidle')
 
 			# Get viewport dimensions
 			viewport_info = await page.evaluate("""() => {
@@ -113,11 +118,7 @@ if __name__ == '__main__':
 	# You can modify this URL to analyze different pages
 
 	urls = [
-		'https://www.mlb.com/yankees/stats/',
-		'https://immobilienscout24.de',
-		'https://www.zeiss.com/career/en/job-search.html?page=1',
-		'https://www.zeiss.com/career/en/job-search.html?page=1',
-		'https://reddit.com',
+		'https://bing.com',
 	]
 	for url in urls:
 		asyncio.run(analyze_page_structure(url))

@@ -774,6 +774,9 @@ class BrowserContext:
 		})()"""
 
 		page = await self.get_current_page()
+		print(111111111111111111111111111111)
+		# 在这里设置了一个断点，并没有起作用，真是奇怪。难道代码没有执行到这里,
+		# 或者说这个代码只是交给AI去执行？
 		structure = await page.evaluate(debug_script)
 		return structure
 
@@ -883,6 +886,7 @@ class BrowserContext:
 
 		return screenshot_b64
 
+	# 下面的功能暂时没有被用到
 	@time_execution_async('--remove_highlights')
 	async def remove_highlights(self):
 		"""

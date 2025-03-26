@@ -1,8 +1,13 @@
 import json
 import os
 import time
+import asyncio
 
 from browser_use.browser.browser import Browser, BrowserConfig
+
+"""
+这个没有跑通，真奇怪
+"""
 
 
 async def test_process_dom():
@@ -10,7 +15,7 @@ async def test_process_dom():
 
 	async with await browser.new_context() as context:
 		page = await context.get_current_page()
-		await page.goto('https://kayak.com/flights')
+		await page.goto('https://bing.com')
 		# await page.goto('https://google.com/flights')
 		# await page.goto('https://immobilienscout24.de')
 		# await page.goto('https://seleniumbase.io/w3schools/iframes')
@@ -38,3 +43,6 @@ async def test_process_dom():
 		# )
 
 		input('Press Enter to continue...')
+
+if __name__ == '__main__':
+	asyncio.run(test_process_dom())
